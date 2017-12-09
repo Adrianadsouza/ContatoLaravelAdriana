@@ -27,7 +27,7 @@ class ContatoController extends Controller
       return view('contatos.create' , $data);
     }
 
-   
+
     public function store(Request $request)
     {
         $this->validate(request(), [

@@ -10,21 +10,21 @@ class ContatoController extends Controller
 
     public function index()
     {
-        $data= array(
-          'titulo'  =>  'Listas de contatos',
-          'contatos'  =>  Contato::all(),
+        $data = array(
+            'titulo' => 'Listas de contatos',
+            'contatos' => Contato::all(),
         );
-        return view('contatos.index' , $data);
+        return view('contatos.index', $data);
     }
 
 
     public function create()
     {
-      $data= array(
-        'titulo'  =>  'Listas de contatos',
-        'contatos'  =>  Contato::all(),
-      );
-      return view('contatos.create' , $data);
+        $data = array(
+            'titulo' => 'Listas de contatos',
+            'contatos' => Contato::all(),
+        );
+        return view('contatos.create', $data);
     }
 
 
@@ -39,11 +39,11 @@ class ContatoController extends Controller
         ]);
 
         $result = Contato::create($request->all());
-        if($result){
+        if ($result) {
 
-          return redirect()->route('principal')->with('sucesso' , 'Cadastro feito com sucesso');
-        }else{
-          return redirect()->back()->with('erro' , 'Não foi possivel cadastrar o contto');
+            return redirect()->route('contato.index')->with('sucesso', 'Cadastro feito com sucesso');
+        } else {
+            return redirect()->back()->with('erro', 'Não foi possivel cadastrar o contto');
         }
     }
 
@@ -56,34 +56,34 @@ class ContatoController extends Controller
 
     public function edit($id)
     {
-      $contato = Contato::findOrFail($id);
-      return view('contatos.edit' , compact('contato'));
+        $contato = Contato::findOrFail($id);
+        return view('contatos.edit', compact('contato'));
     }
 
 
     public function update(Request $request, $id)
     {
-      $contato = Contato::findOrFail($id);
+        $contato = Contato::findOrFail($id);
 
-      $result =$contato->update($request->all());
-      if($result){
+        $result = $contato->update($request->all());
+        if ($result) {
 
-        return redirect()->route('principal')->with('sucesso' , 'Cadastro atualizado com sucesso');
-      }else{
-        return redirect()->back()->with('erro' , 'Não foi possivel atualizar o contto');
-      }
+            return redirect()->route('contato.index')->with('sucesso', 'Cadastro atualizado com sucesso');
+        } else {
+            return redirect()->back()->with('erro', 'Não foi possivel atualizar o contto');
+        }
 
     }
 
 
     public function destroy($id)
     {
-        $result = Contato::where('id' , $id)->delete();
-        if($result){
+        $result = Contato::where('id', $id)->delete();
+        if ($result) {
 
-          return redirect()->route('principal')->with('sucesso' , 'Cadastro excluido com sucesso');
-        }else{
-          return redirect()->back()->with('erro' , 'Não foi possivel excluir o contto');
+            return redirect()->route('contato.index')->with('sucesso', 'Cadastro excluido com sucesso');
+        } else {
+            return redirect()->back()->with('erro', 'Não foi possivel excluir o contto');
         }
 
     }

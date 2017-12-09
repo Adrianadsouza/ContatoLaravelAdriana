@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <br>
-    <a href="{{route('create')}}" class="btn btn-primary btn-lg" role="button" aria-pressed="true"
+    <a href="{{route('contato.create')}}" class="btn btn-primary btn-lg" role="button" aria-pressed="true"
        style="float: right; margin-right: 8px">Nuevo contacto</a>
     <br>
     <br>
@@ -39,8 +39,10 @@
                     <td>{{$cont->direccion}}</td>
 
                     <td>
-                        <a href="{{url('/edit/')}}/{{$cont->id}}" class="btn btn-primary">Cambiar</a>
-                        <a href="{{url('/destroy/')}}/{{$cont->id}}" class="btn btn-primary">Eliminar</a>
+                        <a href="{{url()->route('contato.edit' , $cont->id)}}" class="btn btn-primary">Cambiar</a>
+
+                        <a href="{{url()->route('contato.destroy' , $cont->id)}}"  class="btn btn-primary">Eliminar</a>
+
                     </td>
                 </tr>
             @endforeach

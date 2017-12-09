@@ -15,12 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::group(['middleware' => 'auth'] , function(){
-  Route::get('index' , 'ContatoController@index')->name('principal');
-  Route::get('create' ,'ContatoController@create')->name('create');
-  Route::post('store' , 'ContatoController@store')->name('store');
-  Route::get('edit/{id}' , 'ContatoController@edit');
-  Route::post('update/{id}' , 'ContatoController@update')->name('update');
-  Route::get('destroy/{id}' , 'ContatoController@destroy');
+  Route::get('index' , 'ContatoController@index')->name('contato.index');
+  Route::get('create' ,'ContatoController@create')->name('contato.create');
+  Route::post('store' , 'ContatoController@store')->name('contato.store');
+  Route::get('{id}/edit/' , 'ContatoController@edit')->name('contato.edit');
+  Route::post('update/{id}' , 'ContatoController@update')->name('contato.update');
+  Route::get('destroy/{id}' , 'ContatoController@destroy')->name('contato.destroy');
 });
 
 

@@ -3,20 +3,26 @@
         margin-top: 10px;
     }
 </style>
+<div class="conteiner">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-1">
+            {!! Form::label('nome', 'Nombre') !!}
+            {!! Form::text('nombre' , null , ['class'  =>  'form-control']) !!}
+
+            {!! Form::label('email', 'E-Mail') !!}
+            {!! Form::text('email' , null , ['class'  =>  'form-control']) !!}
+
+            {!! Form::label('nome', 'Teféfono') !!}
+            {!! Form::text('telefono' , null , ['class'  =>  'form-control']) !!}
+
+            {!! Form::label('nome', 'Direccion') !!}
+            {!! Form::text('direccion' , null , ['class'  =>  'form-control']) !!}
+            {!! Form::submit('Cambiar', ['class'    =>  'btn btn-primary' , 'id'    =>  'submit']) !!}
+        </div>
+    </div>
+</div>
 
 
-        {!! Form::label('nome', 'Nombre') !!}
-        {!! Form::text('nombre' , null , ['class'  =>  'form-control']) !!}
-
-        {!! Form::label('email', 'E-Mail') !!}
-        {!! Form::text('email' , null , ['class'  =>  'form-control']) !!}
-
-        {!! Form::label('nome', 'Teféfono') !!}
-        {!! Form::text('telefono' , null , ['class'  =>  'form-control']) !!}
-
-        {!! Form::label('nome', 'Direccion') !!}
-        {!! Form::text('direccion' , null , ['class'  =>  'form-control']) !!}
-        {!! Form::submit('Cambiar', ['class'    =>  'btn btn-primary' , 'id'    =>  'submit']) !!}
 
 
 

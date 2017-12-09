@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
     <div class="conteiner">
-        <div class="col-md-12">
-            <a href="{{route('principal')}}"><h3><i class="fa fa-desktop" aria-hidden="true"></i></h3></a>
+        <div class="col-md-4">
+            <a href="{{route('contato.index')}}"><h1><i class="fa fa-long-arrow-left" aria-hidden="true"></i></h1></a>
         </div>
         <div class="row">
             <div class="row">
@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col-md-6">
 
-                {!! Form::open(['route' =>  'store' , 'method'  =>  'post'])!!}
+                {!! Form::open(['route' =>  'contato.store' , 'method'  =>  'post'])!!}
                 @include('contatos.formulario')
                 {!! Form::close() !!}
             </div>

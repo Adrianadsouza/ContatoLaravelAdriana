@@ -31,9 +31,9 @@ class ContatoController extends Controller
     public function store(Request $request)
     {
         $this->validate(request(), [
-            'nombre' => 'required',
-            'email' => 'required',
-            'telefono' => 'required',
+            'nombre' => 'required|max:150',
+            'email' => 'required|email',
+            'telefono' => 'required|numeric',
             'direccion' => 'required',
 
         ]);
@@ -64,6 +64,14 @@ class ContatoController extends Controller
     public function update(Request $request, $id)
     {
         $contato = Contato::findOrFail($id);
+
+        $this->validate(request(), [
+            'nombre' => 'required',
+            'email' => 'required`email',
+            'telefono' => 'required|numeric',
+            'direccion' => 'required',
+
+        ]);
 
         $result = $contato->update($request->all());
         if ($result) {

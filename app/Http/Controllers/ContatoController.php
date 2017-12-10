@@ -27,13 +27,12 @@ class ContatoController extends Controller
         return view('contatos.create', $data);
     }
 
-
     public function store(Request $request)
     {
         $this->validate(request(), [
             'nombre' => 'required|max:150',
             'email' => 'required|email',
-            'telefono' => 'required|numeric',
+            'telefono' => 'required|numeric' ,
             'direccion' => 'required',
 
         ]);

@@ -14,15 +14,16 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::group(['middleware' => 'auth'] , function(){
-  Route::get('index' , 'ContatoController@index')->name('contato.index');
-  Route::get('create' ,'ContatoController@create')->name('contato.create');
-  Route::post('store' , 'ContatoController@store')->name('contato.store');
-  Route::get('{id}/edit/' , 'ContatoController@edit')->name('contato.edit');
-  Route::post('update/{id}' , 'ContatoController@update')->name('contato.update');
-  Route::get('destroy/{id}' , 'ContatoController@destroy')->name('contato.destroy');
-});
+//Route::group(['middleware' => 'auth'] , function(){
+//  Route::get('index' , 'ContatoController@index')->name('contato.index');
+//  Route::get('create' ,'ContatoController@create')->name('contato.create');
+//  Route::post('store' , 'ContatoController@store')->name('contato.store');
+//  Route::get('{id}/edit/' , 'ContatoController@edit')->name('contato.edit');
+//  Route::post('update/{id}' , 'ContatoController@update')->name('contato.update');
+//  Route::get('destroy/{id}' , 'ContatoController@destroy')->name('contato.destroy');
+//});
 
+Route::resource('contato' , 'ContatoController');
 
 Auth::routes();
 

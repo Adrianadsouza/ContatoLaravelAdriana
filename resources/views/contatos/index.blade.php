@@ -1,5 +1,10 @@
 @extends('layouts.app')
 @section('content')
+    <style>
+        #excluir{
+
+        }
+    </style>
     <br>
     <a href="{{route('contato.create')}}" class="btn btn-primary btn-lg" role="button" aria-pressed="true"
        style="float: right; margin-right: 8px">Nuevo contacto</a>
@@ -39,9 +44,12 @@
                     <td>{{$cont->direccion}}</td>
 
                     <td>
-                        <a href="{{url()->route('contato.edit' , $cont->id)}}" class="btn btn-primary">Cambiar</a>
 
-                        <a href="{{url()->route('contato.destroy' , $cont->id)}}"  class="btn btn-primary">Eliminar</a>
+
+                        {!! Form::open([ 'method'  => 'delete', 'route' => [ 'contato.destroy', $cont->id ] ]) !!}
+                        <a href="{{url()->route('contato.edit' , $cont->id)}}" class="btn btn-primary btn-sm">Cambiar</a>
+                        {!!  Form::submit('Excluir', ['class' => 'btn btn-danger btn-sm' , 'id' =>  'excluir']) !!}
+                        {!!  Form::close() !!}
 
                     </td>
                 </tr>

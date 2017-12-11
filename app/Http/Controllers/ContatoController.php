@@ -66,7 +66,7 @@ class ContatoController extends Controller
 
         $this->validate(request(), [
             'nombre' => 'required',
-            'email' => 'required`email',
+            'email' => 'required|email',
             'telefono' => 'required|numeric',
             'direccion' => 'required',
 

@@ -7,10 +7,11 @@
     </style>
     <br>
     <a href="{{route('contato.create')}}" class="btn btn-primary btn-lg" role="button" aria-pressed="true"
-       style="float: right; margin-right: 8px">Nuevo contacto</a>
+       style="float: right; margin-right: 8px" >Nuevo contacto</a>
     <br>
     <br>
     <br>
+    @include('contatos.modal')
     <div class="container">
         @if(Session::has('sucesso'))
             <div class="alert sucess">{{Session::get('sucesso')}}</div>
@@ -47,8 +48,11 @@
 
 
                         {!! Form::open([ 'method'  => 'delete', 'route' => [ 'contato.destroy', $cont->id ] ]) !!}
+                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">
+                            Presentarse
+                        </button>
                         <a href="{{url()->route('contato.edit' , $cont->id)}}" class="btn btn-primary btn-sm">Cambiar</a>
-                        {!!  Form::submit('Excluir', ['class' => 'btn btn-danger btn-sm' , 'id' =>  'excluir']) !!}
+                        {!!  Form::submit('Excluir', ['class' => 'btn btn-danger btn-sm' , 'id' =>  'Excluir']) !!}
                         {!!  Form::close() !!}
 
                     </td>

@@ -90,7 +90,7 @@
 <script>
 
     $(document).ready(function () {
-        $('#example').DataTable();
+        $('#listagemCategoria').DataTable();
     })
 
 </script>

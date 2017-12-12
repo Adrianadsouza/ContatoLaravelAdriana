@@ -27,7 +27,7 @@
 
             {!! Form::label('nome', 'Direccion') !!}
             {!! Form::text('direccion' , null , ['class'  =>  'form-control']) !!}
-            {!! Form::submit('Cambiar', ['class'    =>  'btn btn-primary' , 'id'    =>  'submit']) !!}
+            {!! Form::submit('Cambiar', ['class'    =>  'btn btn-primary pull-right' ,'style'   =>  'margin-top:10px' , 'id'    =>  'submit']) !!}
         </div>
     </div>
 </div>

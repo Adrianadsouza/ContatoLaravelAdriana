@@ -1,17 +1,13 @@
 @extends('layouts.app')
 @section('content')
-    <style>
-        #excluir{
 
-        }
-    </style>
     <br>
-    <a href="{{route('contato.create')}}" class="btn btn-primary btn-lg" role="button" aria-pressed="true"
-       style="float: right; margin-right: 8px" >Nuevo contacto</a>
+    <a href="{{route('contato.create')}}" class="btn btn-primary btn-md" role="button" aria-pressed="true"
+       style="float: right; margin-right: 70px" >Nuevo contacto</a>
     <br>
     <br>
     <br>
-    @include('contatos.modal')
+
     <div class="container">
         @if(Session::has('sucesso'))
             <div class="alert sucess">{{Session::get('sucesso')}}</div>
@@ -19,7 +15,7 @@
             <div class="alert danger">{{Session::get('erro')}}</div>
         @endif
 
-            <table id="example" class="display" cellspacing="0" width="100%">
+            <table id="listagemCategoria" class="display" cellspacing="0" width="100%">
 
             <thead>
             <tr>
@@ -37,7 +33,6 @@
             @foreach($contatos as $cont)
                 <tr>
 
-
                     <td>{{$cont->id}}</td>
                     <td>{{$cont->nombre}}</td>
                     <td>{{$cont->email}}</td>
@@ -46,9 +41,7 @@
 
                     <td>
 
-
                         {!! Form::open([ 'method'  => 'delete', 'route' => [ 'contato.destroy', $cont->id ] ]) !!}
-                       
                         <a href="{{url()->route('contato.edit' , $cont->id)}}" class="btn btn-primary btn-sm">Cambiar</a>
                         {!!  Form::submit('Excluir', ['class' => 'btn btn-danger btn-sm' , 'id' =>  'Excluir']) !!}
                         {!!  Form::close() !!}
